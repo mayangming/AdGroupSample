@@ -1,0 +1,49 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    // 今日头条穿山甲广告SDK-----start
+    implementation files('libs/open_ad_sdk.aar')
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
+    implementation "com.android.support:support-v4:27.1.1"//适配下载和安装功能
+    // 今日头条穿山甲广告SDK-----end
+
+    // 腾讯广点通广告SDK-------start
+    implementation files('libs/GDTSDK.tbsNormal.4.210.1080.aar')
+    // 腾讯广点通广告SDK-------end
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    //    json解析库
+    implementation 'com.google.code.gson:gson:2.8.2'
+}

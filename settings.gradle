@@ -1,0 +1,3 @@
+rootProject.name='AdGroup'
+include ':app'
+include ':adlibary'
